@@ -1,7 +1,7 @@
 import { Menu } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from "../../assets/jasmin-constructions-logo.png";
+import logo from "../../assets/jasmine-constructions-logo.png";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
