@@ -81,12 +81,25 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Phone className="w-5 h-5 mr-3 mt-1" />
-                <span>(071) 5 694 904</span>
-                <span>(077) 2 240 802</span>
+                <div>
+                  <span>(071) 5 694 904</span>
+                  <span>(077) 2 240 802</span>
+                </div>
               </li>
               <li className="flex items-start">
                 <Mail className="w-5 h-5 mr-3 mt-1" />
                 <span>jasminconstructions@gmail.com</span>
+              </li>
+              <li className="flex">
+                <MapPin className="w-5 h-5 mr-3 text-secondary mt-1" />
+                <div>
+                  <p className="font-semibold text-gray-800">Address</p>
+                  <p className="text-gray-600">
+                    1468/2A, Delgahawatta road,
+                    Kottawa,
+                    Pannipitiya.
+                  </p>
+                </div>
               </li>
             </ul>
           </div>
