@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -37,9 +36,34 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+// Insert EmailJS script
+const loadEmailJSScript = () => {
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+  script.async = true;
+  document.body.appendChild(script);
+  
+  return script;
+};
+
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Initialize EmailJS
+  useEffect(() => {
+    const script = loadEmailJSScript();
+    
+    script.onload = () => {
+      // Initialize EmailJS with your user ID
+      // Replace "user_yourUserID" with your actual EmailJS user ID
+      window.emailjs.init("syb5oUAaBhVW0vsFg");
+    };
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   // Initialize form
   const form = useForm<FormValues>({
@@ -57,16 +81,38 @@ const Contact = () => {
   const onSubmit = (values: FormValues) => {
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      // console.log("Form submitted:", values);
-      toast({
-        title: "Message Sent",
-        description: "Thank you for contacting us. We'll get back to you shortly.",
+    // Create template parameters object for EmailJS
+    const templateParams = {
+      from_name: values.name,
+      from_email: values.email,
+      phone_number: values.phone,
+      project_type: values.projectType,
+      message: values.message,
+      to_email: "jasmineconstructions@gmail.com" // Your receiving email
+    };
+
+    // Send email using EmailJS
+    // Replace "template_ID" and "service_ID" with your actual EmailJS template ID and service ID
+    window.emailjs.send("service_ubk5i5i", "template_dkfr4gs", templateParams)
+      .then((response) => {
+        console.log("Email sent successfully:", response);
+        toast({
+          title: "Message Sent",
+          description: "Thank you for contacting us. We'll get back to you shortly.",
+        });
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Email error:", error);
+        toast({
+          title: "Error",
+          description: "There was a problem sending your message. Please try again later.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-      form.reset();
-      setIsSubmitting(false);
-    }, 1500);
   };
 
   return (
@@ -129,7 +175,7 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel>Phone Number</FormLabel>
                           <FormControl>
-                            <Input type="tel" placeholder="(070) 123-4567" {...field} />
+                            <Input type="tel" placeholder="(555) 123-4567" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -228,21 +274,7 @@ const Contact = () => {
                 </ul>
               </div>
 
-              {/* Google Maps Embed
-              <div className="bg-white p-2 rounded-lg shadow-md overflow-hidden">
-                <div className="w-full h-64">
-                  <iframe
-                    title="Jasmine Constructions Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059445135!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sca!4v1656520284895!5m2!1sen!2sca"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
-              </div> */}
+              {/* Google Maps Embed placeholder */}
             </div>
           </div>
         </div>
@@ -252,5 +284,15 @@ const Contact = () => {
     </div>
   );
 };
+
+// Add TypeScript declaration for EmailJS
+declare global {
+  interface Window {
+    emailjs: {
+      init: (userId: string) => void;
+      send: (serviceId: string, templateId: string, templateParams: any) => Promise<any>;
+    }
+  }
+}
 
 export default Contact;
