@@ -1,7 +1,7 @@
 import { Menu } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from "../../assets/jasmine-constructions-logo.png";
+import logo from "../../assets/jasmin-constructions-logo.png";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -66,7 +66,7 @@ const Header = () => {
             className="h-8 md:h-10 w-auto"
           />
           <div className="text-xl md:text-2xl font-bold font-heading">
-            <span className={`${scrolled ? 'text-primary' : 'text-white'}`}>Jasmine</span>
+            <span className={`${scrolled ? 'text-primary' : 'text-white'}`}>Jasmin</span>
             <span className={`${scrolled ? 'text-secondary' : 'text-white'}`}> Constructions</span>
           </div>
         </Link>

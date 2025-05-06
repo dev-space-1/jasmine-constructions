@@ -3,25 +3,25 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const testimonials = [
   {
-    quote: "Jasmine Constructions transformed our vision into reality. Their attention to detail and commitment to quality exceeded our expectations.",
+    quote: "Jasmin Constructions transformed our vision into reality. Their attention to detail and commitment to quality exceeded our expectations.",
     name: "Sarah Johnson",
     project: "Residential Home",
     rating: 5
   },
   {
-    quote: "Working with Jasmine Constructions was a seamless experience. From planning to execution, their team demonstrated professionalism and expertise at every step.",
+    quote: "Working with Jasmin Constructions was a seamless experience. From planning to execution, their team demonstrated professionalism and expertise at every step.",
     name: "Michael Roberts",
     project: "Commercial Office",
     rating: 5
   },
   {
-    quote: "The team at Jasmine Constructions delivered our project on time and within budget. Their communication was exceptional throughout the entire process.",
+    quote: "The team at Jasmin Constructions delivered our project on time and within budget. Their communication was exceptional throughout the entire process.",
     name: "Emily Thompson",
     project: "Home Renovation",
     rating: 5
   },
   {
-    quote: "We were impressed by the quality of work and dedication shown by Jasmine Constructions. They handled our complex project with ease and precision.",
+    quote: "We were impressed by the quality of work and dedication shown by Jasmin Constructions. They handled our complex project with ease and precision.",
     name: "David Wilson",
     project: "Retail Space",
     rating: 4
@@ -91,7 +91,7 @@ const TestimonialsSection = () => {
         <div className="text-center mb-16">
           <h2 className="section-title text-white">What Our Clients Say</h2>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
-            Don't just take our word for it. Hear from our satisfied clients about their experience working with Jasmine Constructions.
+            Don't just take our word for it. Hear from our satisfied clients about their experience working with Jasmin Constructions.
           </p>
         </div>
 

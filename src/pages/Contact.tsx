@@ -88,7 +88,7 @@ const Contact = () => {
       phone_number: values.phone,
       project_type: values.projectType,
       message: values.message,
-      to_email: "jasmineconstructions@gmail.com" // Your receiving email
+      to_email: "jasminconstructions@gmail.com" // Your receiving email
     };
 
     // Send email using EmailJS
@@ -244,13 +244,25 @@ const Contact = () => {
                     <div>
                       <p className="font-semibold text-gray-800">Phone</p>
                       <p className="text-gray-600">(071) 5 694 904</p>
+                      <p className="text-gray-600">(077) 2 240 802</p>
                     </div>
                   </li>
                   <li className="flex">
                     <Mail className="w-5 h-5 mr-3 text-secondary mt-1" />
                     <div>
                       <p className="font-semibold text-gray-800">Email</p>
-                      <p className="text-gray-600">jasmineconstructions@gmail.com</p>
+                      <p className="text-gray-600">jasminconstructions@gmail.com</p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <MapPin className="w-5 h-5 mr-3 text-secondary mt-1" />
+                    <div>
+                      <p className="font-semibold text-gray-800">Address</p>
+                      <p className="text-gray-600">
+                        1468/2A, Delgahawatta road,
+                        Kottawa,
+                        Pannipitiya.
+                      </p>
                     </div>
                   </li>
                 </ul>

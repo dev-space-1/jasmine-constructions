@@ -18,7 +18,7 @@ const AboutSection = () => {
             <div className="relative rounded-lg overflow-hidden shadow-xl">
               <img
                 src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                alt="Jasmine Constructions building"
+                alt="Jasmin Constructions building"
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-0 left-0 bg-primary text-white py-3 px-6">

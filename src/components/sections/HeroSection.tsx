@@ -21,7 +21,7 @@ const HeroSection = () => {
             Building Excellence, Delivering Results
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8">
-            Jasmine Constructions provides top-quality construction services with precision, 
+            Jasmin Constructions provides top-quality construction services with precision, 
             reliability, and unmatched craftsmanship for residential and commercial projects.
           </p>
           <div className="flex flex-wrap gap-4">
